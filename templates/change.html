@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Official</h1>
+    <form method="post" action="/delete_official">
+        <label for="official_id">Official ID:</label>
+        <input type="text" id="official_id" name="official_id" required>
+        <button type="submit">Delete</button>
+    </form>
+
+    <h1>Update State</h1>
+    <form method="post" action="/update_state">
+        <label for="state_id">State ID:</label>
+        <input type="text" id="state_id" name="state_id" required>
+        <label for="population">Population</label>
+        <input type="text" id="population" name="population" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <h1>Insert Infrastructure</h1>
+    <form method="post" action="/insert_infrastructure">
+        <label for="infrastructure_id">Infrastructure ID:</label>
+        <input type="text" id="infrastructure_id" name="infrastructure_id" required>
+        <label for="infrastructure_name">Infrastructure Name:</label>
+        <input type="text" id="infrastructure_name" name="infrastructure_name" required>
+        <label for="state_id">State ID:</label>
+        <input type="text" id="state_id" name="state_id" required>
+        <label for="cost">Cost :</label>
+        <input type="text" id="cost" name="cost" required>
+        <button type="submit">Insert</button>
+    </form>
+
+    <h1>Update HDI</h1>
+    <form method="post" action="/update_hdi">
+        <label for="hdi_id">HDI ID:</label>
+        <input type="text" id="hdi_id" name="hdi_id" required>
+        <label for="gdp">Total GDP:</label>
+        <input type="text" id="gdp" name="gdp" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <h1>Insert Tourist places</h1>
+    <form method="post" action="/insert_tourist">
+        <label for="attraction_id">Place ID:</label>
+        <input type="text" id="attraction_id" name="attraction_id" required>
+        <label for="attraction_name">Place Name:</label>
+        <input type="text" id="attraction_name" name="attraction_name" required>
+        <label for="about">About</label>
+        <input type="text" id="about" name="about" required>
+        <label for="fee">Entrance Fee :</label>
+        <input type="text" id="fee" name="fee" required>
+        <label for="state_id">State ID:</label>
+        <input type="text" id="state_id" name="state_id" required>
+        <button type="submit">Insert</button>
+    </form>
+</body>
+</html>

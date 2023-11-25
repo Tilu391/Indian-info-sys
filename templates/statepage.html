@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ state.State_Name }} Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .card {
+        width: 150px;
+        height: 200px;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <h1>{{ state.State_Name }} Information</h1>
+
+
+    <h2>Human Development Index</h2>
+    <table>
+        <tr>
+            <th>HDI Value</th>
+            <th>Per Capita Income</th>
+            <th>Life Expectancy</th>
+        </tr>
+        {% for row in hdi_data %}
+            <tr>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Infrastructure Projects</h2>
+    <table>
+        <tr>
+            <th>Infrastructure Project</th>
+            <th>Cost</th>
+        </tr>
+        {% for row in infra_data %}
+            <tr>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    
+
+    <h2>Tourist Places</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>About</th>
+        </tr>
+        {% for row in tour_data %}
+            <tr>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Officials List</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+        </tr>
+        {% for row in office_data %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

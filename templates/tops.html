@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Tops Page
+{% endblock %}
+
+{% block content %}
+
+{% for q in question %}
+<div class="box" id="{{ q.id }}" onclick="toggleBox('{{ q.id }}')">
+    <div class="box-content">
+        <div>
+            {{ q.qna }}
+        </div>
+    </div>
+    <div class="additional-text">
+        {{q.answer}}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.box {
+    background-color: #fff;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 60px;
+    transition: max-height 0.5s ease-in-out;
+    cursor: pointer; /* Add cursor pointer for better user experience */
+}
+
+.box:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.additional-text {
+    display: none;
+    margin-top: 10px;
+    color: #555;
+}
+
+.box.open {
+    max-height: 200px; /* Adjust as needed */
+}
+
+.box.open .additional-text {
+    display: block;
+}
+
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function toggleBox(boxId) {
+        const box = document.getElementById(boxId);
+        const additionalText = box.querySelector('.additional-text');
+
+        if (box.style.maxHeight) {
+            box.style.maxHeight = null;
+            additionalText.style.display = 'none';
+        } else {
+            box.style.maxHeight = box.scrollHeight + "px";
+            additionalText.style.display = 'block';
+        }
+    }
+</script>
+  
+{% endblock %}
+
+
+
+
+
+
+

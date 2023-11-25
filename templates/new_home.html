@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        /* Basic reset to remove default margin and padding */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: beige
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff; /* Text color */
+            text-align: center;
+            padding: 14px 16px; /* Padding around each link */
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Background color on hover */
+        }
+
+        /* Optional styling for active link */
+        .navbar a.active {
+            background-color: #4CAF50; /* Background color for the active link */
+        }
+
+        .heading{
+            text-align: center;
+            font-size: 36px;
+
+        }
+
+        .side-bar{
+            font-size: 22px;
+            font-style: normal;
+            border: 3px solid black;
+            margin-left:76% ;
+            margin-top: -28%;
+            border-radius: 3%;
+            background-color: bisque;
+            padding: 1% 1% 1% 1%;
+        }
+
+        .about-india{
+            font-size: 21px;
+            font-style: normal;
+            border: 3px solid black;
+            margin-top: 10%;
+            margin-right: 65%;
+            margin-left: 5%;
+            border-radius: 3%;
+            background-color: bisque;
+            padding: 2% 2% 2% 2%;
+        }
+
+        .map{
+            width:50%;
+            height: 60%;
+            margin-left: 45%;
+            margin-top: -75%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{url_for('new_home')}}">India</a>
+        <a href="{{url_for('login_page')}}" class="login">Login</a>
+    </div>
+    
+    <div class="heading">
+        <h1>हमारा BHARAT <sub style="font-size: 18px;">Ek Bharat Shresht Bharat...</sub></h1>
+    </div><br><br><br>
+    <img src="{{ url_for('static',filename='images/home.png')}}" style="width: 75%;">
+    <div class="side-bar">
+        <p>
+            India is a country renowned for its rich culture and heritage, with a history that spans thousands of years.
+                Its cultural diversity is one of its most distinctive features,
+                and it has given birth to a wealth of art, music, dance, literature, and traditions.
+                India's heritage is not confined to the past; it continues to evolve, with global influence.
+                Despite its modernization, India remains deeply rooted in its traditions, making it a fascinating
+                and diverse cultural tapestry that continues to captivate the world.
+        </p>
+    </div>
+
+    <div class="about-india">
+        <ul>
+            <li>India is a diverse country with a rich cultural heritage and a varied geography. It is made up of 28 states and 8 union territories.</li><br>
+            <li>India shares its borders with several countries like Pakistan, China, Nepal, Bhutan, Bangladesh, Myanmar, and Afghanistan.</li><br>
+            <li>India is surrounded by water on three sides, which contributes to its extensive coastline and maritime influence. Its main water bodies are the Arabian Sea, Bay of Bengal, and the Indian Ocean, which have shaped the country in numerous ways, such as trade and commerce, fishing, and tourism.</li><br>
+            <li>Indian geography is incredibly diverse, characterized by a wide range of physical features, climatic zones, and ecosystems like the Himalayan Mountain Range, the Northern Plains, Peninsular Plateau, Eastern and Western Ghats, and deserts.</li><br>
+            <li> The country has diverse climate zones and a vast network of rivers like Ganga, Brahmaputra, and Godavari.</li><br>
+        </ul>
+    </div>
+
+    <img src="{{ url_for('static',filename='images/map1.png')}}" class="map">
+    
+
+
+
+</body>
+</html>

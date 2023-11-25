@@ -1,0 +1,115 @@
+{% extends 'base1.html' %}
+
+{% block title %} 
+    Register Page
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="registration-form">
+        
+        <h2>Register</h2>
+        
+            <form method="post" action="{{ url_for('register_page') }}">
+                <div class="input-group">
+                    
+                    <input type="text" id="username" name="username" placeholder="username" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="email" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="password" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm_password" required>
+                </div>
+                <div class="input-group">
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+
+</div>
+
+{% endblock %}
+
+
+{% block style %}
+
+<style>
+    body {
+        font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+        background-color: beige;
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .container {
+        max-width: 400px;
+        margin-top: 5%;
+        margin-left: 36%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .container h2 {
+        margin-bottom: 20px;
+    }
+
+    .container input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .container button {
+        width: 45%; /* Adjust button width */
+        padding: 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .log {
+        font-size: 28px;
+        font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+    }
+
+    .button.login-button {
+        background-color: #007BFF; /* Customize login button color */
+    }
+
+    .button.register-button {
+        background-color: #42b983; /* Customize register button color */
+    }
+
+    .button.admin-button{
+        margin-top: 3%;
+        width: 20%;
+    }
+    
+</style>
+
+<script>
+    function redirectToLogin() {
+        
+        window.location.href = "{{ url_for('login_page') }}"; // Replace with the actual URL or route for your home page
+    }
+    
+</script>
+
+{% endblock %}
+
+
+
+

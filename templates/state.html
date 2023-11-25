@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    State Page
+{% endblock %}
+
+{% block content %}
+
+<p class="phead">States Of India</p>
+<!-- States Section -->
+<div class="card-container">
+    {% for state in states %}
+        <div class="card">
+            <h2>{{ state.name }}</h2>
+            <img src="{{ url_for('static', filename='images/' + state.img) }}" class="image-card"><br>
+            <form method="post" action="{{ url_for('state_page', state_id=state['StateID']) }}">
+                <button class="know-more-button" type="submit">Know More</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Union Territories Section -->
+<div class="card-container">
+    {% for ut in uts %}
+        <div class="card">
+            <h2>{{ ut.name }}</h2>
+            <img src="{{ url_for('static', filename='images/' + ut.img) }}" class="image-card">
+            <form method="post" action="{{ url_for('state_page', state_id=ut['StateID']) }}">
+                <button class="know-more-button" type="submit">Know More</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+{% endblock %}
+
+{% block style %}
+<style>
+    /* Basic reset to remove default margin and padding */
+    body, h1, h2, p, ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Center the card container */
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Style for the card-like blocks */
+    .card {
+        width: 150px;
+        height: 200px;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .phead {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .know-more-button {
+        background-color: black; /* Blue background color */
+        color: #fff; /* White text color */
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .know-more-button:hover {
+        background-color: rgb(1, 58, 80); /* Darker blue on hover */
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s;
+    }
+
+    .image-card {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+{% endblock %}

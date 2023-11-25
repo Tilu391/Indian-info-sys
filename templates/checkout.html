@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Checkout Page
+{% endblock %}
+
+{% block content %}
+    <h1>Order Placed Successfully</h1>
+    <p>Order ID: {{ ans }}</p>
+    
+    <h2>Ordered Items</h2>
+    <ul class=".card-container">
+        {% for item in cart_contents %}
+            <div class="product-card">
+                <p>{{ item[2] }}</p>  {# Assuming Description is the third column in the SELECT query result #}
+                <p>{{ item[1] }}</p> {# Assuming Category is the second column #}
+                <p>Price: 40</p> {# Assuming Status is the fourth column #}
+                
+                
+            </div>
+        
+
+    </ul>
+
+
+<p><a href="{{ url_for('payment', order_id=ans) }}">Proceed to Payment</a></p>
+{% endblock %}
+
+{% block style %}
+    <!-- Add your styles here if needed -->
+    <style>
+        .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .product-card {
+        width: 250px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        background-color: #fff;
+    }
+
+    .product-image {
+        width: 100%;
+        max-height: 150px;
+    }
+    </style>
+    
+{% endblock %}

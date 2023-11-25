@@ -1,0 +1,104 @@
+{% extends 'base1.html' %}
+
+{% block title %} 
+    Login Page
+{% endblock %}
+
+{% block content %}
+<div class="heading">
+    <h1>हमारा BHARAT</h1>
+</div>
+<div class="container">
+    <h2 class="log">Login</h2>
+    <form action="{{ url_for('login_page') }}" method="post" id="loginForm">
+        <div class="input-group">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="input-group">
+            <button type="submit" class="button login-button">Login</button>
+            <button type="button" class="button register-button" onclick="redirectToRegister()">Register</button>
+            <button type="button" class="button admin-button" onclick="redirectToAdmin()">Admin</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+        background-color: beige;
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .container {
+        max-width: 400px;
+        margin-top: 5%;
+        margin-left: 36%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .container h2 {
+        margin-bottom: 20px;
+    }
+
+    .container input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .container button {
+        width: 45%; /* Adjust button width */
+        padding: 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .log {
+        font-size: 28px;
+        font-family: 'Poiret One', Arial, Helvetica, sans-serif;
+    }
+
+    .button.login-button {
+        background-color: #007BFF; /* Customize login button color */
+    }
+
+    .button.register-button {
+        background-color: #42b983; /* Customize register button color */
+    }
+
+    .button.admin-button{
+        margin-top: 3%;
+        width: 20%;
+    }
+    
+</style>
+
+<script>
+    function redirectToRegister() {
+        window.location.href = "{{ url_for('register_page') }}";
+    }
+
+    function redirectToAdmin() {
+        window.location.href = "{{ url_for('alogin_page') }}";
+    }
+</script>
+{% endblock %}

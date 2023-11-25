@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    Cart Page
+{% endblock %}
+
+{% block content %}
+    <h1>Your Shopping Cart</h1>
+    
+    {% if cart_contents %}
+        <ul>
+            {% for item in cart_contents %}
+                <li class="cart-item">
+                    <h2>{{ item[1] }}</h2>
+                    <p>{{ item[2] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('checkout') }}" onsubmit="return addToCart(this);">
+        <button class="know-more-button" type="submit">
+            Go to Checkout
+        </button>
+    </form>
+{% endblock %}
+
+{% block style %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .cart-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+        text-align: center;
+    }
+
+    button.know-more-button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button.know-more-button:hover {
+        background-color: #45a049;
+    }
+</style>
+{% endblock %}

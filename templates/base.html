@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        /* Basic reset to remove default margin and padding */
+        body, h1, h2, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: beige;
+        }
+
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #333; /* Background color of the navbar */
+            overflow: hidden;
+            padding: 20px 0; /* Increased padding to make the navbar taller */
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff; /* Text color */
+            text-align: center;
+            padding: 14px 16px; /* Padding around each link */
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #555; /* Background color on hover */
+        }
+
+        /* Optional styling for active link */
+        .navbar a.active {
+            background-color: #4CAF50; /* Background color for the active link */
+        }
+
+        
+
+        
+    </style>
+    {% block style %}
+
+    {% endblock %}
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{url_for('states_page')}}">States</a>
+        <a href="{{url_for('tops_page')}}">Tops</a>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>
